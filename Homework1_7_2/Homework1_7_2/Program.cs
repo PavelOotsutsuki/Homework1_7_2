@@ -11,22 +11,29 @@ namespace Homework1_7_2
     {
         static void Main(string[] args)
         {
+            string crimeAntiGovernment = "Антиправительственное";
+            string crimeViolent = "Насильственное";
+            string crimeAbuseOfAuthority = "Превышение полномочий";
+            string crimeSellingDrugs = "Сбыт наркотиков";
+            string crimeAntitrust = "Антимонопольное";
+            string crimeBlackmail = "Шантаж";
+
             List<Prisoner> prisoners = new List<Prisoner>()
             {
-                new Prisoner("Борисов Андрей Андреевич", "Антиправительственное"),
-                new Prisoner("Васюков Игорь Степанович", "Насильственное"),
-                new Prisoner("Гулагин Федор Игоревич", "Антиправительственное"),
-                new Prisoner("Дидаш Юлия Андреевна", "Превышение полномочий"),
-                new Prisoner("Егоров Егор Егорович", "Сбыт наркотиков"),
-                new Prisoner("Иванов Петр Павлович", "Антимонопольное"),
-                new Prisoner("Смирнов Андрей Андреевич", "Антиправительственное"),
-                new Prisoner("Смирнов Петр Иванович", "Шантаж"),
+                new Prisoner("Борисов Андрей Андреевич", crimeAntiGovernment),
+                new Prisoner("Васюков Игорь Степанович", crimeViolent),
+                new Prisoner("Гулагин Федор Игоревич", crimeAntiGovernment),
+                new Prisoner("Дидаш Юлия Андреевна", crimeAbuseOfAuthority),
+                new Prisoner("Егоров Егор Егорович", crimeSellingDrugs),
+                new Prisoner("Иванов Петр Павлович", crimeAntitrust),
+                new Prisoner("Смирнов Андрей Андреевич", crimeAntiGovernment),
+                new Prisoner("Смирнов Петр Иванович", crimeBlackmail),
             };
 
             Console.WriteLine("\nДо амнистии:\n");
             ShowListPrisoners(prisoners);
 
-            prisoners = prisoners.Where(prisoner => prisoner.CrimeType != "Антиправительственное").ToList();
+            prisoners = prisoners.Where(prisoner => prisoner.CrimeType != crimeAntiGovernment).ToList();
 
             Console.WriteLine("\nПосле амнистии:\n");
             ShowListPrisoners(prisoners);
